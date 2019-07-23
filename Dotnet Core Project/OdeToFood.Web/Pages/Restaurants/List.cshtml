@@ -1,0 +1,28 @@
+﻿@page
+@model OdeToFood.Web.Pages.Restaurants.ListModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Restaurants List</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" asp-for="SearchTerm" class="form-control" />
+            <span class="input-group-append">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </span>
+        </div>
+    </div>
+</form>
+
+@foreach (var res in Model.Restaurants)
+{
+    <partial name="_Summary" model="res" />
+}
+
+<a class="btn btn-primary" asp-page="./Edit">Add Restaurant</a>
+
+
+
